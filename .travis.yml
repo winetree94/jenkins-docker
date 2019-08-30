@@ -1,0 +1,11 @@
+sudo: 'required'
+
+services:
+  - docker
+
+before_install:
+  - 'echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin'
+
+script:
+  - 'sudo bash ./build.sh'
+  - 'sudo bash ./deploy.sh'
